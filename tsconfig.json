@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "module": "esnext",
+    "target": "es2020",
+    "strict": false,
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
+    "allowJs": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "types": ["chrome"],
+    "typeRoots": ["node_modules/@types"],
+    "jsxImportSource": "react"
+  },
+  "include": ["src/**/*", "manifest.json"],
+  "exclude": ["node_modules", "dist"]
+}

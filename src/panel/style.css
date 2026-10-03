@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Theme tokens — colors as RGB triplets so Tailwind opacity modifiers
+ * (e.g. bg-accent/15) work: rgb(var(--accent) / 0.15).
+ * Light is the default; dark follows the browser (prefers-color-scheme).
+ * Palette is derived from the Manifest logo: #86EE02 lime + #03301D forest.
+ */
+:root {
+  color-scheme: light;
+  --bg: 246 248 244;
+  --card: 255 255 255;
+  --accent: 27 122 14;
+  --accent2: 3 48 29;
+  --accent-contrast: 255 255 255;
+  --border: 221 227 219;
+  --text: 16 25 16;
+  --muted: 92 107 94;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: 7 12 8;
+    --card: 13 20 14;
+    --accent: 134 238 2;
+    --accent2: 49 168 15;
+    --accent-contrast: 10 14 10;
+    --border: 38 48 38;
+    --text: 232 240 232;
+    --muted: 124 139 126;
+  }
+}
+
+/* Textarea base */
+textarea {
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+}
+
+/* Color input */
+input[type="color"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Select styles */
+select {
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  background: transparent;
+  border: 1px solid rgb(var(--border));
+  color: rgb(var(--text));
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+/* Button styles
+   NOTE: no element-level `button:hover` repaint here — an element+pseudo-class
+   selector (0,1,1) outranks single Tailwind utility classes (0,1,0) and would
+   wipe component backgrounds (e.g. the gradient CTA) on hover. Buttons define
+   their own hover states with utilities. */
+button {
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  background: transparent;
+  border: 1px solid rgb(var(--border));
+  color: rgb(var(--text));
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(var(--accent) / 0.3);
+}
+
+/* Main container */
+.main-container {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+/* Tab buttons */
+.tab-btn {
+  padding: 6px 12px;
+  border-radius: 6px 6px 0 0;
+  background: transparent;
+  border: 1px solid rgb(var(--border));
+  color: rgb(var(--muted));
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 4px;
+  transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+  background: rgb(var(--accent));
+  color: rgb(var(--accent-contrast));
+  border-color: rgb(var(--accent));
+}
+
+/* Code block / textarea wrapper */
+.code-block {
+  background: rgb(var(--bg));
+  border: 1px solid rgb(var(--border));
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Highlight styles for element selection */
+.highlight-overlay {
+  position: fixed;
+  border: 2px solid rgb(var(--accent));
+  border-radius: 4px;
+  background: rgb(var(--accent) / 0.15);
+  z-index: 2147483645;
+  transition: border-color 0.1s ease, background 0.1s ease;
+}
+
+.persistent-highlight {
+  border: 3px solid #ff6b6b !important;
+  background: rgba(255, 107, 107, 0.2) !important;
+}
+
+/* Tooltip */
+.tooltip {
+  position: fixed;
+  background: rgb(var(--card) / 0.92);
+  color: rgb(var(--text));
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  pointer-events: none;
+  z-index: 2147483647;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgb(var(--accent) / 0.3);
+}
+
+/* Changes summary item */
+.change-item {
+  transition: all 0.2s ease;
+}
+
+.change-item:hover {
+  background: rgb(var(--card));
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

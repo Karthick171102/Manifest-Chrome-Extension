@@ -1,0 +1,72 @@
+/* Content script styles for Manifest */
+/*
+ * Overlay theme, derived from the Manifest logo (#86EE02 lime / #03301D forest).
+ * Namespaced --mvi-* vars so host pages can't clash; dark follows the browser.
+ */
+:root {
+  --mvi-accent: 27 122 14;
+  --mvi-bg: 246 248 244;
+  --mvi-text: 16 25 16;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --mvi-accent: 134 238 2;
+    --mvi-bg: 7 12 8;
+    --mvi-text: 232 240 232;
+  }
+}
+
+.visual-inspector-highlight {
+  position: fixed;
+  pointer-events: none;
+  z-index: 2147483640;
+  border: 2px solid rgb(var(--mvi-accent)) !important;
+  background-color: rgb(var(--mvi-accent) / 0.15) !important;
+  border-radius: 4px;
+  box-shadow: 0 0 14px rgb(var(--mvi-accent) / 0.45);
+  transition: all 0.06s ease-out;
+}
+
+.visual-inspector-tooltip {
+  position: fixed;
+  pointer-events: none;
+  z-index: 2147483645;
+  background: rgb(var(--mvi-bg) / 0.97) !important;
+  color: rgb(var(--mvi-accent)) !important;
+  border: 1px solid rgb(var(--mvi-accent) / 0.5) !important;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.visual-inspector-persistent-highlight {
+  position: fixed;
+  pointer-events: none;
+  z-index: 2147483639;
+  border: 2px dashed rgb(var(--mvi-accent)) !important;
+  background-color: rgb(var(--mvi-accent) / 0.08) !important;
+  border-radius: 6px;
+  box-shadow: 0 0 16px rgb(var(--mvi-accent) / 0.35);
+}
+
+.visual-inspector-banner {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(var(--mvi-bg) / 0.95);
+  color: rgb(var(--mvi-text));
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  border: 1px solid rgb(var(--mvi-accent) / 0.5);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  z-index: 2147483647;
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+}
