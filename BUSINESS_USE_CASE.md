@@ -1,4 +1,4 @@
-# Business Use Case: Visual Inspector Chrome Extension
+# What Manifest Do?
 
 ## Executive Summary
 **Visual Inspector** is a Chrome extension that transforms the way non-technical stakeholders and developers communicate web page changes. It enables users to select any element on a webpage, edit its text/colors/fonts visually, and automatically generate structured prompts ready for agent IDEs or task tickets.
