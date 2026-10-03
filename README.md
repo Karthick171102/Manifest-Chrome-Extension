@@ -1,6 +1,6 @@
 ![Manifest Logo](public/icons/logo-light.svg)
 
-## What Is the Main Business of This Extension?
+## What Manifest Do?
 
 This extension addresses the need for efficient web page inspection and design iteration. Its core purpose is to enable developers and designers to:
 
